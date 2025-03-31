@@ -1,0 +1,812 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../pr-1/">
+      
+      
+        <link rel="next" href="../pr-3/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.49">
+    
+    
+      
+        <title>pr-2 - Web Programming Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.6f8fc17f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#12-sqlmodel-alembic" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Web Programming Docs" class="md-header__button md-logo" aria-label="Web Programming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Web Programming Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              pr-2
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Web Programming Docs" class="md-nav__button md-logo" aria-label="Web Programming Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Web Programming Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../labs/lr-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    lr-1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pr-1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pr-1
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    pr-2
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    pr-2
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Практическая часть
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Практическая часть">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Подключение к базе данных
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sqlmodel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Модели SQLModel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Эндпоинты для воинов
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Эндпоинты для профессий
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Эндпоинты для умений
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Результат
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pr-3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    pr-3
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Практическая часть
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Практическая часть">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Подключение к базе данных
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sqlmodel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Модели SQLModel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Эндпоинты для воинов
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Эндпоинты для профессий
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Эндпоинты для умений
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Результат
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="12-sqlmodel-alembic">Практика 1.2. Настройка БД, SQLModel и миграции через Alembic</h1>
+<p>В рамках практики я настроил приложение на FastAPI с использованием SQLModel для работы с PostgreSQL. Реализовал модели для воинов, профессий, умений и их связей, а также CRUD-операции. Настроено вложенное отображение профессий и умений при запросе воина. Все эндпоинты протестированы через документацию по адресу <code>127.0.0.1:8000/docs</code>.</p>
+<h2 id="_1">Практическая часть</h2>
+<h3 id="_2">Подключение к базе данных</h3>
+<p>В файле <code>connection.py</code> настроено подключение к PostgreSQL:</p>
+<pre><code class="language-python">from sqlmodel import SQLModel, Session, create_engine  
+
+db_url = &quot;postgresql://postgres:123123@localhost/warriors_db&quot;  
+engine = create_engine(db_url, echo=True)  
+
+
+def init_db():  
+    SQLModel.metadata.create_all(engine)  
+
+
+def get_session():  
+    with Session(engine) as session:  
+        yield session
+</code></pre>
+<p>Инициализация таблиц вызывается в <code>main.py</code> при старте приложения:</p>
+<pre><code class="language-python">@app.on_event(&quot;startup&quot;)  
+def on_startup():  
+    init_db()
+</code></pre>
+<h3 id="sqlmodel">Модели SQLModel</h3>
+<p>В файле <code>models.py</code> определены модели с учётом связей:</p>
+<ul>
+<li><strong>Воин и ответ с вложенными данными:</strong></li>
+</ul>
+<pre><code class="language-python">class WarriorDefault(SQLModel):  
+    race: RaceType  
+    name: str  
+    level: int  
+    profession_id: Optional[int] = Field(default=None, foreign_key=&quot;profession.id&quot;)  
+
+
+class Warrior(WarriorDefault, table=True):  
+    id: int = Field(default=None, primary_key=True)  
+    profession: Optional[Profession] = Relationship(  
+        back_populates=&quot;warriors_prof&quot;,  
+        sa_relationship_kwargs={&quot;lazy&quot;: &quot;joined&quot;},  
+    )  
+
+    skills: Optional[List[Skill]] = Relationship(  
+        back_populates=&quot;warriors&quot;,  
+        link_model=SkillWarriorLink,  
+        sa_relationship_kwargs={&quot;uselist&quot;: True, &quot;lazy&quot;: &quot;selectin&quot;},  
+    )
+
+class WarriorProfessions(WarriorDefault):  
+    profession: Optional[Profession] = None  
+
+
+class WarriorResponse(WarriorProfessions):  
+    id: int  
+    skills: List[Skill]
+</code></pre>
+<ul>
+<li><strong>Профессия:</strong></li>
+</ul>
+<pre><code class="language-python">class ProfessionDefault(SQLModel):  
+    title: str  
+    description: str  
+
+class Profession(ProfessionDefault, table=True):  
+    id: int = Field(default=None, primary_key=True)  
+    warriors_prof: List[&quot;Warrior&quot;] = Relationship(back_populates=&quot;profession&quot;)
+</code></pre>
+<ul>
+<li><strong>Умение и ассоциативная таблица:</strong></li>
+</ul>
+<pre><code class="language-python">class SkillWarriorLink(SQLModel, table=True):  
+    skill_id: Optional[int] = Field(  
+        default=None, foreign_key=&quot;skill.id&quot;, primary_key=True  
+    )  
+    warrior_id: Optional[int] = Field(  
+        default=None, foreign_key=&quot;warrior.id&quot;, primary_key=True  
+    )  
+
+
+class SkillDefault(SQLModel):  
+    name: str  
+    description: Optional[str] = &quot;&quot;  
+
+
+class Skill(SkillDefault, table=True):  
+    id: int = Field(default=None, primary_key=True)  
+    warriors: Optional[List[&quot;Warrior&quot;]] = Relationship(  
+        back_populates=&quot;skills&quot;,  
+        link_model=SkillWarriorLink  
+    )
+</code></pre>
+<h3 id="_3">Эндпоинты для воинов</h3>
+<p>Реализованы CRUD-операции в <code>main.py</code>:</p>
+<ul>
+<li><strong>Создание воина:</strong></li>
+</ul>
+<pre><code class="language-python">@app.post(&quot;/warrior&quot;)  
+def warriors_create(warrior: WarriorDefault, session=Depends(get_session)):  
+    warrior = Warrior.model_validate(warrior)  
+    session.add(warrior)  
+    session.commit()  
+    session.refresh(warrior)  
+    return {&quot;status&quot;: 200, &quot;data&quot;: warrior}
+</code></pre>
+<ul>
+<li><strong>Получение списка воинов:</strong></li>
+</ul>
+<pre><code class="language-python">@app.get(&quot;/warriors_list&quot;)  
+def warriors_list(session=Depends(get_session)) -&gt; List[Warrior]:  
+    return session.exec(select(Warrior)).all()
+</code></pre>
+<ul>
+<li><strong>Получение воина с профессией и умениями:</strong></li>
+</ul>
+<pre><code class="language-python">@app.get(&quot;/warrior/{warrior_id}&quot;, response_model=WarriorResponse)  
+def warriors_get(warrior_id: int, session=Depends(get_session)) -&gt; Warrior:  
+    warrior = session.get(Warrior, warrior_id)  
+    return warrior
+</code></pre>
+<ul>
+<li><strong>Обновление воина:</strong></li>
+</ul>
+<pre><code class="language-python">@app.patch(&quot;/warrior/{warrior_id}&quot;)  
+def warrior_update(  
+        warrior_id: int, warrior: WarriorDefault, session=Depends(get_session)  
+) -&gt; WarriorDefault:  
+    db_warrior = session.get(Warrior, warrior_id)  
+    if not db_warrior:  
+        raise HTTPException(status_code=404, detail=&quot;Warrior not found&quot;)  
+
+    warrior_data = warrior.model_dump(exclude_unset=True)  
+    for key, value in warrior_data.items():  
+        setattr(db_warrior, key, value)  
+
+    session.add(db_warrior)  
+    session.commit()  
+    session.refresh(db_warrior)  
+    return db_warrior
+</code></pre>
+<ul>
+<li><strong>Удаление воина:</strong></li>
+</ul>
+<pre><code class="language-python">@app.delete(&quot;/warrior/{warrior_id}&quot;)  
+def warrior_delete(warrior_id: int, session=Depends(get_session)):  
+    warrior = session.get(Warrior, warrior_id)  
+    if not warrior:  
+        raise HTTPException(status_code=404, detail=&quot;Warrior not found&quot;)  
+    session.delete(warrior)  
+    session.commit()  
+    return {&quot;ok&quot;: True}
+</code></pre>
+<h3 id="_4">Эндпоинты для профессий</h3>
+<ul>
+<li><strong>Получение списка профессий:</strong></li>
+</ul>
+<pre><code class="language-python">@app.get(&quot;/professions_list&quot;)  
+def professions_list(session=Depends(get_session)) -&gt; List[Profession]:  
+    return session.exec(select(Profession)).all()
+</code></pre>
+<ul>
+<li><strong>Получение конкретной профессии:</strong></li>
+</ul>
+<pre><code class="language-python">@app.get(&quot;/profession/{profession_id}&quot;)  
+def profession_get(profession_id: int, session=Depends(get_session)) -&gt; Profession:  
+    return session.get(Profession, profession_id)
+</code></pre>
+<ul>
+<li><strong>Создание профессии:</strong></li>
+</ul>
+<pre><code class="language-python">@app.post(&quot;/profession&quot;)  
+def profession_create(prof: ProfessionDefault, session=Depends(get_session)):  
+    prof = Profession.model_validate(prof)  
+    session.add(prof)  
+    session.commit()  
+    session.refresh(prof)  
+    return {&quot;status&quot;: 200, &quot;data&quot;: prof}
+</code></pre>
+<h3 id="_5">Эндпоинты для умений</h3>
+<p>Добавлены операции для управления умениями и их привязкой к воинам:</p>
+<ul>
+<li><strong>Добавление умения:</strong></li>
+</ul>
+<pre><code class="language-python">@app.post(&quot;/skill&quot;)  
+def skills_create(skill: SkillDefault, session=Depends(get_session)):  
+    skill = Skill.model_validate(skill)  
+    session.add(skill)  
+    session.commit()  
+    session.refresh(skill)  
+    return {&quot;status&quot;: 200, &quot;data&quot;: skill}
+</code></pre>
+<ul>
+<li><strong>Получение списка умений:</strong></li>
+</ul>
+<pre><code class="language-python">@app.get(&quot;/skills_list&quot;)  
+def skills_list(session=Depends(get_session)) -&gt; List[Skill]:  
+    return session.exec(select(Skill)).all()
+</code></pre>
+<ul>
+<li><strong>Обновление умения:</strong></li>
+</ul>
+<pre><code class="language-python">@app.patch(&quot;/skill/{skill_id}&quot;)  
+def skill_update(  
+        skill_id: int, skill: SkillDefault, session=Depends(get_session)  
+) -&gt; SkillDefault:  
+    db_skill = session.get(Skill, skill_id)  
+    if not db_skill:  
+        raise HTTPException(status_code=404, detail=&quot;Skill not found&quot;)  
+
+    skill_data = skill.model_dump(exclude_unset=True)  
+    for key, value in skill_data.items():  
+        setattr(db_skill, key, value)  
+
+    session.add(db_skill)  
+    session.commit()  
+    session.refresh(db_skill)  
+    return db_skill
+</code></pre>
+<ul>
+<li><strong>Удаление умения:</strong></li>
+</ul>
+<pre><code class="language-python">@app.delete(&quot;/skill/{skill_id}&quot;)  
+def skill_delete(skill_id: int, session=Depends(get_session)):  
+    skill = session.get(Skill, skill_id)  
+    if not skill:  
+        raise HTTPException(status_code=404, detail=&quot;Skill not found&quot;)  
+    session.delete(skill)  
+    session.commit()  
+    return {&quot;ok&quot;: True}
+</code></pre>
+<ul>
+<li><strong>Привязка умения к воину:</strong></li>
+</ul>
+<pre><code class="language-python">@app.post(&quot;/skill_warriors&quot;)  
+def warrior_skill_add(skill_warrior: SkillWarriorLink, session=Depends(get_session)):  
+    skill = session.get(Skill, skill_warrior.skill_id)  
+    if not skill:  
+        raise HTTPException(status_code=404, detail=&quot;Skill not found&quot;)  
+
+    warrior = session.get(Warrior, skill_warrior.warrior_id)  
+    if not warrior:  
+        raise HTTPException(status_code=404, detail=&quot;Warrior not found&quot;)  
+
+    if skill not in warrior.skills:  
+        session.add(skill_warrior)  
+        session.commit()  
+
+    return {&quot;ok&quot;: True}
+</code></pre>
+<h2 id="_6">Результат</h2>
+<p>Все эндпоинты протестированы через документацию FastAPI. Пример вложенного ответа для воина:</p>
+<p><img alt="Пример вложенного ответа для воина" src="./assets/pr-2/warrior.png" /></p>
+<p><img alt="Документация FastAPI" src="./assets/pr-2/FastAPI-docs.png" /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.88dd0f4e.min.js"></script>
+      
+    
+  </body>
+</html>
