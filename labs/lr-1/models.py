@@ -14,7 +14,6 @@ class Users(SQLModel, table = True):
 
     transactions: List["Transactions"] = Relationship(back_populates = "user")
     budgets: List["Budgets"] = Relationship(back_populates = "user")
-    goals: List["Goals"] = Relationship(back_populates = "user")
     notifications: List["Notifications"] = Relationship(back_populates = "user")
 
 
@@ -35,7 +34,6 @@ class Categories(SQLModel, table = True):
     category_id: Optional[int] = Field(default = None, primary_key = True)
     transaction_type_id: Optional[int] = Field(default = None, foreign_key = "transactiontypes.transaction_type_id")
     name: str
-    description: Optional[str] = None
 
     transactions: List["Transactions"] = Relationship(back_populates = "category")
     budgets: List["Budgets"] = Relationship(back_populates = "category")
@@ -50,36 +48,30 @@ class Budgets(SQLModel, table = True):
     start_date: datetime
     end_date: datetime
     description: Optional[str] = None
+    total_spent: float = Field(default = 0.0)
 
     user: Optional["Users"] = Relationship(back_populates = "budgets")
     category: Optional["Categories"] = Relationship(back_populates = "budgets")
-
-
-class Goals(SQLModel, table = True):
-    goal_id: Optional[int] = Field(default = None, primary_key = True)
-    user_id: Optional[int] = Field(foreign_key = "users.user_id")
-    target_amount: float
-    current_amount: float
-    end_date: datetime
-    description: Optional[str] = None
-
-    user: Optional["Users"] = Relationship(back_populates = "goals")
+    notifications: List["Notifications"] = Relationship(back_populates = "budget")
 
 
 class Notifications(SQLModel, table = True):
     notification_id: Optional[int] = Field(default = None, primary_key = True)
     user_id: Optional[int] = Field(foreign_key = "users.user_id")
+    budget_id: Optional[int] = Field(foreign_key = "budgets.budget_id")
     message: str
     created_at: datetime = Field(default_factory = datetime.utcnow)
     is_read: bool = Field(default = False)
 
     user: Optional["Users"] = Relationship(back_populates = "notifications")
+    budget: Optional["Budgets"] = Relationship(back_populates = "notifications")
 
 
 class TransactionTags(SQLModel, table = True):
     transaction_tag_id: Optional[int] = Field(default = None, primary_key = True)
     tag_id: Optional[int] = Field(foreign_key = "tags.tag_id")
     transaction_id: Optional[int] = Field(foreign_key = "transactions.transaction_id")
+    created_at: datetime = Field(default_factory = datetime.utcnow)
 
 
 class Tags(SQLModel, table = True):

@@ -68,14 +68,10 @@ def create_user_with_hash(user_create: UserCreate, session: Session) -> Users:
     return new_user
 
 
-def create_user_and_token(user_create: UserCreate, session: Session) -> dict:
+def create_user_and_token(user_create: UserCreate, session: Session) -> UserWithToken:
     user = create_user_with_hash(user_create, session)
     token = create_access_token(data = {"sub": user.username})
-    return {
-        "user": UserRead.model_validate(user),
-        "access_token": token,
-        "token_type": "bearer"
-    }
+    return UserWithToken(user = UserRead.model_validate(user), access_token = token)
 
 
 @router.post("/register", response_model = UserWithToken)

@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlmodel import Session, select
 from connection import get_session
 from models import Users
+from typing import List
 from routers.auth import create_user_and_token
 from schemas import UserCreate, UserRead, UserUpdate, UserWithToken
 
@@ -13,7 +14,7 @@ def create_user(user_create: UserCreate, session: Session = Depends(get_session)
     return create_user_and_token(user_create, session)
 
 
-@router.get("/", response_model = list[UserRead])
+@router.get("/", response_model = List[UserRead])
 def read_users(session: Session = Depends(get_session)):
     users = session.exec(select(Users)).all()
     return users
